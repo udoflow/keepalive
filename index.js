@@ -18,6 +18,7 @@ if (!Array.isArray(endpoints) || endpoints.some(e => typeof e !== 'string')) {
 }
 
 app.use(async (ctx, next) => {
+  console.log('got')
   await next();
 
   // Set a timer to send empty requests to each endpoint 9 minutes later
