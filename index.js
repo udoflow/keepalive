@@ -23,7 +23,7 @@ app.use(async (ctx, next) => {
 
   // Set a timer to send empty requests to each endpoint 9 minutes later
   timer[ctx.request.ip] = setTimeout(async() => {
-    await Promise.all(endpoints.forEach(endpoint => axios.get(endpoint)))
+    await Promise.all(endpoints.map(endpoint => axios.get(endpoint)))
     console.log('sent')
   }, 9 * 60 * 1000); // 9 minutes
 });
